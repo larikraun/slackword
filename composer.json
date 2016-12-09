@@ -1,0 +1,11 @@
+{
+  "require-dev": {
+    "phpunit/phpunit": "5.5.*",
+    "vlucas/phpdotenv": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Larikraun\\": "src/"
+    }
+  }
+}
