@@ -60,7 +60,7 @@ class WordRequest
      */
     public static function getDefinition($word)
     {
-        $url = "https://wordsapiv1.p.mashape.com/words/{$word}/definitions'";
+        $url = "https://wordsapiv1.p.mashape.com/words/{$word}/definitions";
         $headers = array("X-Mashape-Key:" . WordRequest::KEY);
         $wordReq = new WordRequest($url, $headers);
 

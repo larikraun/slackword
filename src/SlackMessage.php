@@ -53,7 +53,7 @@ class SlackMessage
     {
         $ret = array('text' => $this->text);
         if (!empty($this->attachment)) {
-            $ret['attachments'][0]['fields'] = $this->attachment;
+            $ret['attachments'] = $this->attachment;
         }
         return $ret;
     }

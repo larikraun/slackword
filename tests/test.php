@@ -7,17 +7,19 @@
  */
 include(__DIR__."/../vendor/autoload.php");
 $command = "/randomword";
-$text = "random";
+$text = "";
 $response_url = "";
 if ($command == "/randomword") {
-    if ($text == "configure") {
+    if ($text == "(configure)") {
 
     } else if (\Larikraun\Util::startsWith($text, "word")) {
-        Larikraun\SlackBot::getDefinition($response_url, "word");
-    } else if ($text == "random") {
+        $word = explode(" ", $text);
+        Larikraun\SlackBot::getDefinition($response_url, $word[1]);
+    } else if ($text == "") {
         \Larikraun\SlackBot::getRandom($response_url);
-    } else if ($text == "help") {
+    } else if ($text == "(help)") {
+        echo "List of commands:\n(help)\n(configure)\nany other thing";
     } else {
-        echo "Sorry. I did not recognise that command. Try /randomword help to get valid list of commands";
+        Larikraun\SlackBot::getDefinition($response_url, $text);
     }
 }
