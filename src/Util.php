@@ -9,6 +9,9 @@
 namespace Larikraun;
 
 
+
+use Dotenv\Dotenv;
+
 class Util
 {
     static function startsWith($haystack, $needle)
@@ -30,5 +33,14 @@ class Util
         }
 
         return (substr($haystack, -$length) === $needle);
+    }
+
+    static function loadEnv()
+    {
+        if (!getenv('APP_ENV')) {
+            $dotenv = new Dotenv(__DIR__ . "/../");
+            $dotenv->load();
+            $dotenv->required(['WORD_API_KEY']);
+        }
     }
 }

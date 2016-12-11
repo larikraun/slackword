@@ -51,10 +51,10 @@ class SlackMessage
 
     public function serialize()
     {
-        $ret = array('text' => $this->text);
+        $message = array('text' => $this->text);
         if (!empty($this->attachment)) {
-            $ret['attachments'] = $this->attachment;
+            $message['attachments'] = $this->attachment;
         }
-        return $ret;
+        return $message;
     }
 }

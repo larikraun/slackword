@@ -7,7 +7,7 @@
  */
 include(__DIR__."/../vendor/autoload.php");
 $command = "/randomword";
-$text = "";
+$text = "random";
 $response_url = "";
 if ($command == "/randomword") {
     if ($text == "(configure)") {

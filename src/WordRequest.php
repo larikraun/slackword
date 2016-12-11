@@ -11,7 +11,6 @@ class WordRequest
 {
     private $url;
     private $header;
-    const  KEY = "PhjsDMbgOzmshGlyaWVMkrtgKLQXp1aKgqFjsnG6pK32yzK19c";
 
     /**
      * WordRequest constructor.
@@ -45,9 +44,10 @@ class WordRequest
      */
     public static function getRandom()
     {
+        Util::loadEnv();
         $url = "https://wordsapiv1.p.mashape.com/words/?random=true&hasDetails=definitions";
 
-        $headers = array("X-Mashape-Key:" . WordRequest::KEY);
+        $headers = array("X-Mashape-Key:" . getenv('WORD_API_KEY'));
         $wordReq = new WordRequest($url, $headers);
 
         $result = CurlHandler::callAPI($wordReq);
@@ -60,8 +60,9 @@ class WordRequest
      */
     public static function getDefinition($word)
     {
+        Util::loadEnv();
         $url = "https://wordsapiv1.p.mashape.com/words/{$word}/definitions";
-        $headers = array("X-Mashape-Key:" . WordRequest::KEY);
+        $headers = array("X-Mashape-Key:" . getenv('WORD_API_KEY'));
         $wordReq = new WordRequest($url, $headers);
 
         $result = CurlHandler::callAPI($wordReq);

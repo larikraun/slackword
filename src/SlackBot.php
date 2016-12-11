@@ -9,8 +9,6 @@
 namespace Larikraun;
 class SlackBot
 {
-    private static $URL = "https://hooks.slack.com/services/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";
-
     public static function getRandom($url)
     {
         $word = WordRequest::getRandom();
@@ -25,7 +23,6 @@ class SlackBot
         $word = WordRequest::getDefinition($word);
         $slackMessage = self::buildMessage($word);
         $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
-        //echo json_encode($slackMessage->serialize());
         CurlHandler::sendMessage($slackReq);
     }
 

@@ -26,7 +26,6 @@ class CurlHandler
 
     public static function callAPI(WordRequest $req)
     {
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $req->getUrl());
         curl_setopt($ch, CURLOPT_HTTPHEADER, $req->getHeader());
