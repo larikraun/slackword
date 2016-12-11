@@ -11,41 +11,22 @@ class SlackBot
 {
     private static $URL = "https://hooks.slack.com/services/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";
 
-    public static function buildRequest($fields)
+    public static function getRandom($url)
     {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, SELF::$URL);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-        $result = curl_exec($ch);
-        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-
-        return json_decode($result, true);
-    }
-
-    public static function doGet()
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $result = curl_exec($ch);
-        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        $result = json_decode($result, true);
-        $response = array();
-
-        return $response;
-    }
-
-    public static function sendData()
-    {
-        $word = WordAPI::getRandom();
+        $word = WordRequest::getRandom();
         $slackMessage = self::buildMessage($word);
-        echo $slackMessage->toString();
-        // self::buildRequest(json_encode($data));
+        $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
+        echo json_encode($slackMessage->serialize());
+        CurlHandler::sendMessage($slackReq);
+    }
+
+    public static function getDefinition($url, $word)
+    {
+        $word = WordRequest::getDefinition($word);
+        $slackMessage = self::buildMessage($word);
+        $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
+        echo json_encode($slackMessage->serialize());
+       // CurlHandler::sendMessage($slackReq);
     }
 
     private static function buildMessage(Word $word)
@@ -66,7 +47,7 @@ class SlackBot
 
 
 
-/*$command = $_GET["command"];
+/*
 $text = $_GET["text"];
 /*array(10) {
     ["token"]=>
@@ -90,12 +71,4 @@ $text = $_GET["text"];
     ["response_url"]=>
  string(80) "https://hooks.slack.com/commands/T2B7WM9DF/115470074279/rHB3BaxZFQvuhAX4noZcql9X"
 }
-if ($command == "/randomword") {
-    if ($text == "configure") {
-
-    } else if ($text == "word") {
-
-    } else if ($text == "random") {
-        SlackNewWord::sendData();
-    }
-}*/
+*/

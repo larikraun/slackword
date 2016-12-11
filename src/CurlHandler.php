@@ -11,7 +11,7 @@ namespace Larikraun;
 
 class CurlHandler
 {
-    private function sendMessage(SlackRequest $req)
+    public static function sendMessage(SlackRequest $req)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $req->getUrl());
@@ -21,6 +21,20 @@ class CurlHandler
         $result = curl_exec($ch);
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+        return $result;
+    }
+
+    public static function callAPI(WordRequest $req)
+    {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $req->getUrl());
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $req->getHeader());
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        $result = json_decode($result, true);
         return $result;
     }
 }

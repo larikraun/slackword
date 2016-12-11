@@ -39,13 +39,22 @@ class SlackMessage
     /**
      * @param mixed $attachment
      */
-    public function setAttachment($attachment = array())
+    public function setAttachment($attachment)
     {
         $this->attachment = $attachment;
     }
 
     public function toString()
     {
-        echo "Text: " . $this->text . " and attachment " . json_encode($this->attachment);
+        return "Text: " . $this->text . " and attachment " . json_encode($this->attachment);
+    }
+
+    public function serialize()
+    {
+        $ret = array('text' => $this->text);
+        if (!empty($this->attachment)) {
+            $ret['attachments'][0]['fields'] = $this->attachment;
+        }
+        return $ret;
     }
 }
