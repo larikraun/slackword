@@ -4,7 +4,6 @@ build
 composer.lock
 index.php
 .env
-.env.example
 .idea/*
 logs
 tests/test.php
