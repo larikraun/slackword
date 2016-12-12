@@ -6,6 +6,7 @@ Dictionary in your slack....additionally, you can get random words.
 * Clone the repo
 * Get an API KEY from [Word API] https://www.wordsapi.com/
 * Fix the key into your .env file
+* Integrate into your slack team
 
 # List of commands
 Command  | Description
