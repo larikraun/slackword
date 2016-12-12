@@ -29,5 +29,8 @@ Command  | Description
 /randomword (help) | Shows list of all commands
 /randomword (configure) | configures the frequency of random words suggestions
 
+# For Contributions or issues
+Send me a mail at **omolara.adejuwon@gmail.com**
+
 # Credit
 [Word API] (https://www.wordsapi.com/)

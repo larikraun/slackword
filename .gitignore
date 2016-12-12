@@ -2,7 +2,6 @@ vendor
 build
 .DS_Store
 composer.lock
-index.php
 .env
 .idea/*
 logs
