@@ -7,3 +7,4 @@ index.php
 .env.example
 .idea/*
 logs
+tests/test.php
