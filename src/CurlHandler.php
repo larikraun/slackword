@@ -28,7 +28,6 @@ class CurlHandler
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $req->getUrl());
-        curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $req->getHeader());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
@@ -38,7 +37,6 @@ class CurlHandler
         if ($status==404) {
             return false;
         }
-        
         $result = json_decode($result, true);
         return $result;
     }
