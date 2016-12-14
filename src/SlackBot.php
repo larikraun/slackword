@@ -18,15 +18,20 @@ class SlackBot
         CurlHandler::sendMessage($slackReq);
     }
 
-    public static function getDefinition($url, $word)
+    public static function getDefinition($url, $wordText)
     {
-        $word = WordRequest::getDefinition($word);
-        $slackMessage = self::buildMessage($word);
-        $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
+        $word = WordRequest::getDefinition($wordText);
+        if ($word) {
+            $slackMessage = self::buildDefinitionMessage($word);
+            $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
+        } else {
+            $slackMessage = self::buildNotFoundMessage($wordText);
+            $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
+        }
         CurlHandler::sendMessage($slackReq);
     }
 
-    private static function buildMessage(Word $word)
+    private static function buildDefinitionMessage(Word $word)
     {
         $message = new SlackMessage();
         $message->setText("New Word");
@@ -38,6 +43,13 @@ class SlackBot
         $attachment[1]["text"] = $word->getDefintion();
         $attachment[1]["color"] = "#aba5ed";
         $message->setAttachment($attachment);
+        return $message;
+    }
+
+    private static function buildNotFoundMessage($word)
+    {
+        $message = new SlackMessage();
+        $message->setText("Sorry, Icouldn't find $word. :disappointed: Try checking your spelling.");
         return $message;
     }
 }

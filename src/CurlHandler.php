@@ -28,11 +28,17 @@ class CurlHandler
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $req->getUrl());
+        curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $req->getHeader());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+
+        if ($status==404) {
+            return false;
+        }
+        
         $result = json_decode($result, true);
         return $result;
     }
