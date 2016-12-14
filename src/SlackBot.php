@@ -49,7 +49,7 @@ class SlackBot
     private static function buildNotFoundMessage($word)
     {
         $message = new SlackMessage();
-        $message->setText("Sorry, I couldn't find $word. :disappointed: Try checking your spelling.");
+        $message->setText("Sorry, I couldn't find *$word*. :disappointed: Try checking your spelling.");
         return $message;
     }
 }
