@@ -5,6 +5,7 @@ Dictionary in your slack....additionally, you can get random words.
 * **Add Slash Command Integration** to your team on slack
 * Use **/randomword** as the slash command
 * Use **http://larikraun.me/slack-random-word/index.php** as the url
+* Set method to **GET**
 * Save the settings
 * You can now use the slash command from your slack team. (See the list of commands below)
 
