@@ -9,7 +9,7 @@ include("vendor/autoload.php");
 $command = $_GET["command"];
 $text = $_GET["text"];
 $response_url = $_GET["response_url"];
-if ($command == "/randomword") {
+if ($command == "/slackword") {
 
     if ($text == "(configure)") {
 
