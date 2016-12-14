@@ -66,7 +66,10 @@ class WordRequest
         $wordReq = new WordRequest($url, $headers);
 
         $result = CurlHandler::callAPI($wordReq);
-        return new Word($result["word"], $result["definitions"][0]["definition"]);
+        if ($result) {
+            return new Word($result["word"], $result["definitions"][0]["definition"]);
+        } else {
+            return false;
+        }
     }
-
 }
