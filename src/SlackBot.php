@@ -12,7 +12,7 @@ class SlackBot
     public static function getRandom($url)
     {
         $word = WordRequest::getRandom();
-        $slackMessage = self::buildMessage($word);
+        $slackMessage = self::buildDefinitionMessage($word);
         $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
         //  echo json_encode($slackMessage->serialize());
         CurlHandler::sendMessage($slackReq);
