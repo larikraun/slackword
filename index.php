@@ -15,12 +15,7 @@ if ($command == "/randomword") {
 
         //TODO configure
 
-    } else if (\Larikraun\Util::startsWith($text, "word")) {
-
-        $word = explode(" ", $text);
-        Larikraun\SlackBot::getDefinition($response_url, $word[1]);
-
-    } else if ($text == "") {
+    }  else if ($text == "") {
 
         \Larikraun\SlackBot::getRandom($response_url);
 
