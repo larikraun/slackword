@@ -26,7 +26,7 @@ Dictionary in your slack....additionally, you can get random words.
 Command  | Description
 ------------- | -------------
 /slackword  | Fetches a random word and definition
-/slackword {word} e.g /randomword orchid  | Fetches the meaning of {word}
+/slackword {word} e.g /slackword orchid  | Fetches the meaning of {word}
 /slackword (help) | Shows list of all commands
 /slackword (configure) | configures the frequency of random words suggestions
 
