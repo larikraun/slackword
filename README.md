@@ -3,7 +3,7 @@ Dictionary in your slack....additionally, you can get random words.
 
 # How it works (for now)
 * **Add Slash Command Integration** to your team on slack
-* Use **/randomword** as the slash command
+* Use **/slackword** as the slash command
 * Use **http://larikraun.me/slack-random-word/index.php** as the url
 * Set method to **GET**
 * Save the settings
@@ -25,10 +25,10 @@ Dictionary in your slack....additionally, you can get random words.
 # List of commands
 Command  | Description
 ------------- | -------------
-/randomword  | Fetches a random word and definition
-/randomword {word} e.g /randomword orchid  | Fetches the meaning of {word}
-/randomword (help) | Shows list of all commands
-/randomword (configure) | configures the frequency of random words suggestions
+/slackword  | Fetches a random word and definition
+/slackword {word} e.g /slackword orchid  | Fetches the meaning of {word}
+/slackword (help) | Shows list of all commands
+/slackword (configure) | configures the frequency of random words suggestions
 
 # For Contributions or issues
 Send me a mail at **omolara.adejuwon@gmail.com**
