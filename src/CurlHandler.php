@@ -34,7 +34,7 @@ class CurlHandler
         $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
-        if ($status==404) {
+        if ($status == 404) {
             return false;
         }
         $result = json_decode($result, true);

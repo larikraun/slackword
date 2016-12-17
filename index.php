@@ -15,7 +15,7 @@ if ($command == "/slackword") {
 
         //TODO configure
 
-    }  else if ($text == "") {
+    } else if ($text == "") {
 
         \Larikraun\SlackBot::getRandom($response_url);
 
@@ -24,7 +24,6 @@ if ($command == "/slackword") {
         echo "List of commands:\n(help)\n(configure)\nany other thing";
 
     } else {
-
         Larikraun\SlackBot::getDefinition($response_url, $text);
 
     }

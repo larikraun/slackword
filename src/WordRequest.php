@@ -28,7 +28,8 @@ class WordRequest
      */
     public function getUrl()
     {
-        return $this->url;
+        //quick hack to encode url (nothing official :P)
+        return str_replace(" ", "%20", $this->url);
     }
 
     /**
