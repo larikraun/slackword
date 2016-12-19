@@ -19,7 +19,7 @@ class WordRequest
      */
     public function __construct($url, $header)
     {
-        $this->url = $url;
+        $this->url = urlencode($url);
         $this->header = $header;
     }
 
@@ -28,8 +28,7 @@ class WordRequest
      */
     public function getUrl()
     {
-        //quick hack to encode url (nothing official :P)
-        return str_replace(" ", "%20", $this->url);
+        return $this->url;
     }
 
     /**
