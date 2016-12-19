@@ -7,20 +7,28 @@
  * Time: 1:08 PM
  */
 namespace Larikraun;
+use phpDocumentor\Reflection\Types\Array_;
+
 class Word
 {
+    /**
+     * @var String the word that was looked up
+     */
     private $word;
-    private $defintion;
+    /**
+     * @var Array_ Hold the results of a lookup
+     */
+    private $definitions;
 
     /**
      * Word constructor.
      * @param $word
-     * @param $defintion
+     * @param $definition
      */
-    public function __construct($word, $defintion)
+    public function __construct($word, $definition)
     {
         $this->word = $word;
-        $this->defintion = $defintion;
+        $this->definitions = $definition;
     }
 
     /**
@@ -42,16 +50,16 @@ class Word
     /**
      * @return mixed
      */
-    public function getDefintion()
+    public function getDefinitions()
     {
-        return $this->defintion;
+        return $this->definitions;
     }
 
     /**
-     * @param mixed $defintion
+     * @param mixed $definitions
      */
-    public function setDefintion($defintion)
+    public function setDefinitions($definitions)
     {
-        $this->defintion = $defintion;
+        $this->definitions = $definitions;
     }
 }

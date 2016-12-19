@@ -28,8 +28,7 @@ class WordRequest
      */
     public function getUrl()
     {
-        //quick hack to encode url (nothing official :P)
-        return str_replace(" ", "%20", $this->url);
+        return $this->url;
     }
 
     /**
@@ -52,23 +51,26 @@ class WordRequest
         $wordReq = new WordRequest($url, $headers);
 
         $result = CurlHandler::callAPI($wordReq);
-        return new Word($result["word"], $result["results"][0]["definition"]);
+
+        return new Word($result["word"], $result["results"]);
     }
 
     /**
      * @param $word
-     * @return Word
+     * @return bool|Word
      */
     public static function getDefinition($word)
     {
         Util::loadEnv();
-        $url = "https://wordsapiv1.p.mashape.com/words/{$word}/definitions";
+        $encoded = urlencode($word);
+
+        $url = "https://wordsapiv1.p.mashape.com/words/{$encoded}/definitions";
         $headers = array("X-Mashape-Key:" . getenv('WORD_API_KEY'));
         $wordReq = new WordRequest($url, $headers);
 
         $result = CurlHandler::callAPI($wordReq);
         if ($result) {
-            return new Word($result["word"], $result["definitions"][0]["definition"]);
+            return new Word($result["word"], $result["definitions"]);
         } else {
             return false;
         }
