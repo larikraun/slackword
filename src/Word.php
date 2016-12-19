@@ -7,9 +7,17 @@
  * Time: 1:08 PM
  */
 namespace Larikraun;
+use phpDocumentor\Reflection\Types\Array_;
+
 class Word
 {
+    /**
+     * @var String the word that was looked up
+     */
     private $word;
+    /**
+     * @var Array_ Hold the results of a lookup
+     */
     private $definition;
 
     /**
