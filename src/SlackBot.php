@@ -40,7 +40,7 @@ class SlackBot
         $attachment[0]["text"] = $word->getWord();
         $attachment[0]["color"] = "good";
         $attachment[1]["title"] = "Definition";
-        $attachment[1]["text"] = $word->getDefintion();
+        $attachment[1]["text"] = $word->getDefinition();
         $attachment[1]["color"] = "#aba5ed";
         $message->setAttachment($attachment);
         return $message;

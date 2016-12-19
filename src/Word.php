@@ -10,17 +10,17 @@ namespace Larikraun;
 class Word
 {
     private $word;
-    private $defintion;
+    private $definition;
 
     /**
      * Word constructor.
      * @param $word
-     * @param $defintion
+     * @param $definition
      */
-    public function __construct($word, $defintion)
+    public function __construct($word, $definition)
     {
         $this->word = $word;
-        $this->defintion = $defintion;
+        $this->definition = $definition;
     }
 
     /**
@@ -42,16 +42,16 @@ class Word
     /**
      * @return mixed
      */
-    public function getDefintion()
+    public function getDefinition()
     {
-        return $this->defintion;
+        return $this->definition;
     }
 
     /**
-     * @param mixed $defintion
+     * @param mixed $definition
      */
-    public function setDefintion($defintion)
+    public function setDefinition($definition)
     {
-        $this->defintion = $defintion;
+        $this->definition = $definition;
     }
 }
