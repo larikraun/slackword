@@ -7,6 +7,8 @@
  * Time: 1:01 PM
  */
 namespace Larikraun;
+use phpDocumentor\Reflection\Types\Array_;
+
 class SlackBot
 {
     public static function getRandom($url)
@@ -14,7 +16,7 @@ class SlackBot
         $word = WordRequest::getRandom();
         $slackMessage = self::buildDefinitionMessage($word);
         $slackReq = new SlackRequest($url, json_encode($slackMessage->serialize()));
-        //  echo json_encode($slackMessage->serialize());
+        // echo json_encode($slackMessage->serialize());
         CurlHandler::sendMessage($slackReq);
     }
 
@@ -39,9 +41,19 @@ class SlackBot
         $attachment[0]["title"] = "Word";
         $attachment[0]["text"] = $word->getWord();
         $attachment[0]["color"] = "good";
-        $attachment[1]["title"] = "Definition";
-        $attachment[1]["text"] = $word->getDefinition();
-        $attachment[1]["color"] = "#aba5ed";
+
+        $definitions = $word->getDefinitions();
+        $definitionCount = count($definitions);
+
+        for ($i = 1; $i <= $definitionCount; $i++) {
+            /** @var Array_ $definition */
+            $definition = $definitions[$i-1];
+
+            $attachment[$i]["title"] = "Definition" . ($i > 1 ? " ({$i})" : "");
+            $attachment[$i]["text"] = $definition["definition"];
+            $attachment[$i]["color"] = "#aba5ed";
+        }
+
         $message->setAttachment($attachment);
         return $message;
     }

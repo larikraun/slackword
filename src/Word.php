@@ -18,7 +18,7 @@ class Word
     /**
      * @var Array_ Hold the results of a lookup
      */
-    private $definition;
+    private $definitions;
 
     /**
      * Word constructor.
@@ -28,7 +28,7 @@ class Word
     public function __construct($word, $definition)
     {
         $this->word = $word;
-        $this->definition = $definition;
+        $this->definitions = $definition;
     }
 
     /**
@@ -50,16 +50,16 @@ class Word
     /**
      * @return mixed
      */
-    public function getDefinition()
+    public function getDefinitions()
     {
-        return $this->definition;
+        return $this->definitions;
     }
 
     /**
-     * @param mixed $definition
+     * @param mixed $definitions
      */
-    public function setDefinition($definition)
+    public function setDefinitions($definitions)
     {
-        $this->definition = $definition;
+        $this->definitions = $definitions;
     }
 }
