@@ -57,7 +57,7 @@ class WordRequest
 
     /**
      * @param $word
-     * @return Word
+     * @return bool|Word
      */
     public static function getDefinition($word)
     {
