@@ -1,6 +1,8 @@
 # Slackword
 Dictionary in your slack....additionally, you can get random words.
 
+![Alt text](/screenshot.png?raw=true "screens")
+
 # How it works (for now)
 * **Add Slash Command Integration** to your team on slack
 * Use **/slackword** as the slash command
