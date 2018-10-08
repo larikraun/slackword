@@ -1,5 +1,7 @@
 # Slackword
-Dictionary in your slack....additionally, you can get random words.
+Imagine having a conversation with your team on slack and someone drops a big word. How do you stay calm? This solution helps you find the meaning to these words right inside the conversation without breaking the flow. It maximises slack's slash command.
+
+Here is a dictionary in your slack....additionally, you can get random words.
 
 ![Alt text](/screenshot.png?raw=true "screens")
 
